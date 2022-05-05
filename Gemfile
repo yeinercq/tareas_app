@@ -46,6 +46,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "simple_form"
 gem "annotate"
+gem "rails-i18n"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
