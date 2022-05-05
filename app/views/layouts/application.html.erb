@@ -12,6 +12,7 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <%= button_to 'Close session', destroy_user_session_path, method: :delete %>
     <%= yield %>
   </body>
 </html>
