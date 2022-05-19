@@ -10,6 +10,13 @@
     <%= f.association :category %>
   </div>
 
+  <div class="participants">
+    <%= f.simple_fields_for :participating_users do |ff| %>
+      <%= render 'participating_user_fields', f: ff %>
+    <% end %>
+    <%= link_to_add_fields "Add participants", f, :participating_users %>
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

@@ -1,0 +1,8 @@
+<div class="nested-fields">
+  <%= f.input :_destroy, as: :hidden %>
+  <%= f.input :user_id, as: :select, collection: User.all - [ current_user ] %>
+  <%= f.input :role %>
+</div>
+<div>
+  <%= link_to "Remove", '#', class: "remove_fields" %>
+</div>
