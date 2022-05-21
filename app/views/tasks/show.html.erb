@@ -3,10 +3,12 @@
 <%= render @task %>
 
 <div class="notes-container">
-  <% @task.notes.each do |note| %>
-    <p><%= note.body %></p>
-  <% end %>
-  <%= simple_form_for Note.new, url: task_notes_path(task_id: @task.id) do |f| %>
+  <div class="notes">
+    <% @task.notes.each do |note| %>
+      <%= render 'tasks/notes/note', note: note %>
+    <% end %>
+  </div>
+  <%= simple_form_for Note.new, url: task_notes_path(task_id: @task.id), remote: true do |f| %>
     <%= f.input :body, label: false, as: :string, placeholder: 'Escriba su nota', input_html: { autocomplete: :off } %>
   <% end %>
 </div>
