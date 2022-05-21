@@ -10,12 +10,14 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  owner_id    :bigint           not null
+#  code        :string
 #
 class Task < ApplicationRecord
   belongs_to :category
   belongs_to :owner, class_name: 'User'
   has_many :participating_users, class_name: 'Participant'
   has_many :participants, through: :participating_users, source: :user, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   validates :participating_users, presence: true
   validates :name, :description, presence: true
