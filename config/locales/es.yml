@@ -12,6 +12,10 @@ es:
     new_category: Nueva categoria
   common:
     back: Atras
+    show: Mostrar
+    edit: Editar
+    destroy: Eliminar
+    are_you_sure: Esta seguro?
   hello: Hello world
   task:
     errors:

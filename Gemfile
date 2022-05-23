@@ -49,6 +49,7 @@ gem "annotate"
 gem "rails-i18n"
 gem "devise"
 gem "cancancan"
+gem "font-awesome-rails"
 # Use Sass to process CSS
 # gem "sassc-rails"
 

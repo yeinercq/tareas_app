@@ -11,12 +11,15 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <div class="container mt-4 pb-4">
+    <div class="container">
       <div class="main-flash-messages">
         <%= render 'layouts/messages' %>
       </div>
-      <%= yield %>
+    </div>
+    <div class="fullscreen">
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
