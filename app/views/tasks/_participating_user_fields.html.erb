@@ -1,8 +1,19 @@
 <div class="nested-fields">
-  <%= f.input :_destroy, as: :hidden %>
-  <%= f.input :user_id, as: :select, collection: User.all - [ current_user ] %>
-  <%= f.input :role %>
-</div>
-<div>
-  <%= link_to "Remove", '#', class: "remove_fields" %>
+  <hr>
+  <div class="text-right"></div>
+  <div class="row">
+    <div class="col-4">
+      <%= f.input :_destroy, as: :hidden %>
+      <%= f.input :user_id, label: "Usuario", as: :select, collection: User.all - [ current_user ], label_method: -> (u) { u.email } %>
+    </div>
+    <div class="col-4">
+      <%= f.input :role, label: "Rol", as: :select, collection: Participant.roles, value_method: -> (r) { r[0] } %>
+    </div>
+    <div class="col-4 text-left">
+      <div class="mt-2">
+        <%= link_to "Remove", '#', class: "remove_fields btn btn-warning btn-sm btn-flat mt-4" %>
+        
+      </div>
+    </div>
+  </div>
 </div>
