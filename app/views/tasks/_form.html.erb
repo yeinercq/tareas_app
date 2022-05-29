@@ -1,4 +1,4 @@
-<%= simple_form_for(@task) do |f| %>
+<%= simple_form_for(@task, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } ) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -20,10 +20,18 @@
   </div>
   <br>
   <div class="participants">
+    <template data-nested-form-target="template">
+      <%= f.simple_fields_for :participating_users, Participant.new, child_index: 'NEW_RECORD' do |ff| %>
+        <%= render 'participating_user_fields', f: ff %>
+      <% end %>
+    </template>
+
     <%= f.simple_fields_for :participating_users do |ff| %>
       <%= render 'participating_user_fields', f: ff %>
     <% end %>
-    <%= link_to_add_fields "Add participants", f, :participating_users %>
+
+    <div data-nested-form-target="target"></div>
+    <button type="button" data-action="nested-form#add" class="btn btn-info float-right">Agregar participante</button>
   </div>
   <br>
   <div class="form-actions">
